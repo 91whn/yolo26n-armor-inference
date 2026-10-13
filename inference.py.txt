@@ -1,0 +1,7 @@
+from ultralytics import YOLO
+
+model = YOLO("yolo26n.pt")
+results = model("data/armor_video.mp4", conf=0.35, save=True)
+
+for r in results:
+    print(f"检测到 {len(r.boxes)} 个目标")
